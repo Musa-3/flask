@@ -61,4 +61,6 @@ def handle_message(data):
     send(full_message, to=room)
 
 if __name__ == "__main__":
-    socketio.run(app, debug=True)
+    import eventlet
+    eventlet.monkey_patch()
+    socketio.run(app, host="0.0.0.0", port=5000)
